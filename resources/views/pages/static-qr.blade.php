@@ -14,6 +14,9 @@
 @section('content')
     <x-page-hero eyebrow="Static QR" title="One reusable code. Many everyday collections." cta="Get Started">
         A Static QR identifies the merchant or collection point. It stays the same from payment to payment, which makes it ideal for counters, cafés and service desks.
+        <x-slot:visual>
+            <x-scanner variant="static" />
+        </x-slot:visual>
     </x-page-hero>
 
     <section class="container-bc grid items-center gap-12 py-20 lg:grid-cols-2">
@@ -28,13 +31,9 @@
             </ul>
         </div>
         <div class="card p-8 text-center">
-            <p class="text-xs font-semibold tracking-wide text-navy uppercase">Merchant display mockup</p>
-            <div class="mt-5 rounded-3xl bg-navy px-6 py-10 text-white">
-                <p class="text-sm text-white/70">Pay {{ config('app.name') }}</p>
-                <div class="mt-4 flex justify-center rounded-2xl bg-white p-4">
-                    <x-qr-mark :size="160" />
-                </div>
-                <p class="mt-4 text-xs text-white/70">Enter amount in your payment app</p>
+            <p class="text-xs font-semibold tracking-wide text-navy uppercase">Merchant scanner display</p>
+            <div class="mt-5">
+                <x-scanner variant="static" note="Scan with BadiliCash" />
             </div>
         </div>
     </section>

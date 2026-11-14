@@ -14,6 +14,9 @@
 @section('content')
     <x-page-hero eyebrow="Dynamic QR" title="A unique QR for every payment request." cta="Try the simulation" :ctaHref="route('dynamic-qr').'#demo'">
         Dynamic QR is generated for a single collection. The amount can be predefined, a payment reference can travel with the request, and the code can expire when that behaviour is supported.
+        <x-slot:visual>
+            <x-scanner variant="dynamic" amount="₹1,250.00" note="Unique request QR" />
+        </x-slot:visual>
     </x-page-hero>
 
     <section class="container-bc grid gap-6 py-16 md:grid-cols-2 lg:grid-cols-4">
@@ -91,7 +94,7 @@
 
                 <div x-show="step === 'qr'" class="text-center" style="display: none;">
                     <p class="text-xs font-semibold tracking-wide text-navy uppercase">Scan this sample QR</p>
-                    <div class="mt-4 flex justify-center"><x-qr-mark :size="170" /></div>
+                    <div class="mt-4 flex justify-center"><x-branded-qr :size="170" pattern="dynamic" :showName="true" caption="BadiliCash dynamic QR" /></div>
                     <p class="mt-4 text-2xl font-semibold text-navy-dark">₹<span x-text="amount"></span></p>
                     <p class="text-xs text-muted" x-text="reference + ' · ' + requestId"></p>
                     <p class="mt-2 text-sm font-medium text-navy">Expires in <span x-text="mmss"></span></p>

@@ -110,14 +110,9 @@
                     <h2 class="section-kicker">One Scan. A Seamless Payment Experience.</h2>
                     <p class="mt-4 text-muted">Choose a reusable Static QR for open collections, or generate a Dynamic QR when every request needs a locked amount and a clear reference.</p>
                 </div>
-                <div class="relative mx-auto" data-aos="zoom-in">
-                    <div class="relative flex h-64 w-64 items-center justify-center">
-                        <span class="pulse-ring absolute h-64 w-64 rounded-full border border-green/30"></span>
-                        <span class="absolute h-52 w-52 rounded-full bg-gradient-to-br from-navy/10 to-green/10 blur-xl"></span>
-                        <div class="relative rounded-[1.8rem] bg-white p-5 shadow-[var(--shadow-float)] ring-1 ring-white">
-                            <x-qr-mark :size="150" caption="Sample QR illustration" />
-                        </div>
-                    </div>
+                <div class="grid items-end gap-4 sm:grid-cols-2" data-aos="zoom-in">
+                    <x-scanner variant="static" note="Scan · enter amount" />
+                    <x-scanner variant="dynamic" amount="₹1,250.00" note="Unique request QR" />
                 </div>
             </div>
             <div class="mt-12 grid gap-6 lg:grid-cols-2">

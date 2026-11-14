@@ -14,6 +14,9 @@
 @section('content')
     <x-page-hero eyebrow="Payment Links" title="Send a link. Collect with context." cta="Get Started">
         Payment links turn a BadiliCash request into something you can share. The customer opens the URL, sees the amount and reference, and completes payment in their usual flow.
+        <x-slot:visual>
+            <x-scanner variant="link" amount="₹18,500.00" note="Payment link" />
+        </x-slot:visual>
     </x-page-hero>
 
     <section class="container-bc grid items-center gap-12 py-20 lg:grid-cols-2">

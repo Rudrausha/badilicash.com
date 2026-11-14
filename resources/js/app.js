@@ -27,6 +27,7 @@ import {
     Smartphone,
     Sparkles,
     Share2,
+    Timer,
     Wallet,
 } from 'lucide';
 
@@ -159,6 +160,7 @@ const lucideIcons = {
     Smartphone,
     Sparkles,
     Share2,
+    Timer,
     Wallet,
 };
 

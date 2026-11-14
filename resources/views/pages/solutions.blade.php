@@ -35,9 +35,15 @@
                     <a href="{{ $s[2] }}" class="btn-primary mt-6">Learn more</a>
                 </div>
                 <div class="flex justify-center lg:col-span-5 {{ $i % 2 === 1 ? 'lg:order-1' : '' }}">
-                    <div class="rounded-[2rem] bg-canvas p-8">
-                        @if (str_contains($s[0], 'QR'))
-                            <x-qr-mark :size="150" />
+                    <div class="rounded-[2rem] bg-canvas p-6">
+                        @if ($s[0] === 'UPI Payments')
+                            <x-scanner variant="upi" amount="₹1,250.00" />
+                        @elseif ($s[0] === 'Static QR' || $s[0] === 'QR Code Payments')
+                            <x-scanner variant="static" />
+                        @elseif ($s[0] === 'Dynamic QR')
+                            <x-scanner variant="dynamic" amount="₹1,250.00" />
+                        @elseif ($s[0] === 'Payment Links')
+                            <x-scanner variant="link" amount="₹18,500.00" />
                         @else
                             <div class="flex h-40 w-40 items-center justify-center rounded-3xl bg-gradient-to-br from-navy to-green text-white">
                                 <i data-lucide="{{ $s[3] }}" class="h-12 w-12"></i>

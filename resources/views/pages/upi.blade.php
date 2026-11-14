@@ -14,6 +14,9 @@
 @section('content')
     <x-page-hero eyebrow="UPI Payments" title="A unified way to collect, a familiar way to pay." cta="Talk to sales">
         BadiliCash helps businesses present UPI-style collection requests — as a QR, as a link, or as an on-device intent concept — without pretending the customer’s bank app is ours.
+        <x-slot:visual>
+            <x-scanner variant="upi" amount="₹1,250.00" />
+        </x-slot:visual>
     </x-page-hero>
 
     <section class="container-bc grid items-center gap-12 py-20 lg:grid-cols-2">
@@ -28,7 +31,7 @@
         </div>
         <div class="flex justify-center" data-aos="zoom-in">
             <div class="rounded-[2rem] bg-canvas p-8">
-                <x-qr-mark :size="180" caption="Illustrative UPI QR" />
+                <x-scanner variant="upi" amount="₹1,250.00" note="Pay with UPI" />
             </div>
         </div>
     </section>
