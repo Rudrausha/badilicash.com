@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'dashboard' => [
+        'login_url' => env('DASHBOARD_LOGIN_URL', 'http://127.0.0.1:8001/login'),
+        'signup_url' => env('DASHBOARD_SIGNUP_URL', 'http://127.0.0.1:8001/signup'),
+    ],
+
 ];

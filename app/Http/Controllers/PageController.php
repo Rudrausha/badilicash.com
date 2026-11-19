@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\SoundBoxCatalog;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -44,6 +45,21 @@ class PageController extends Controller
     public function paymentLinks(): View
     {
         return view('pages.payment-links');
+    }
+
+    public function standardSoundBox(): View
+    {
+        return view('pages.sound-box', ['product' => SoundBoxCatalog::get('standard')]);
+    }
+
+    public function digitalSoundBox(): View
+    {
+        return view('pages.sound-box', ['product' => SoundBoxCatalog::get('digital')]);
+    }
+
+    public function dynamicSoundBox(): View
+    {
+        return view('pages.sound-box', ['product' => SoundBoxCatalog::get('dynamic')]);
     }
 
     public function howItWorks(): View

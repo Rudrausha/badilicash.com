@@ -55,5 +55,29 @@
         @endforeach
     </section>
 
+    <section class="bg-canvas py-20">
+        <div class="container-bc">
+            <div class="mx-auto max-w-2xl text-center">
+                <p class="eyebrow mx-auto">QR Sound Boxes</p>
+                <h2 class="section-kicker">QR sound boxes for the counter</h2>
+                <p class="mt-4 text-muted">Standard, Digital, and Dynamic QR Sound Boxes show a scannable QR on the device and confirm the payment out loud.</p>
+            </div>
+            <div class="mt-12 grid gap-6 lg:grid-cols-3">
+                @foreach (\App\Support\SoundBoxCatalog::all() as $box)
+                    <article class="card flex flex-col p-6">
+                        <img src="{{ asset($box['image']) }}" alt="{{ $box['imageAlt'] }}" class="mx-auto h-64 w-full object-contain">
+                        <h3 class="mt-4 text-xl font-semibold text-navy-dark">{{ $box['name'] }}</h3>
+                        <ul class="mt-4 space-y-2 text-sm text-muted">
+                            @foreach (array_slice($box['features'], 0, 4) as $feature)
+                                <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-green"></i> {{ $feature[0] }}</li>
+                            @endforeach
+                        </ul>
+                        <a href="{{ route($box['route']) }}" class="btn-primary mt-6">View QR and features</a>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     <x-cta-band />
 @endsection

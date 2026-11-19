@@ -54,6 +54,7 @@
                         <option>Pricing</option>
                         <option>Developer / API</option>
                         <option>Partnership</option>
+                        <option>Order a QR Sound Box</option>
                         <option>Something else</option>
                     </select>
                     <p class="mt-1 text-xs text-red-600" x-show="errors.subject" x-text="errors.subject"></p>

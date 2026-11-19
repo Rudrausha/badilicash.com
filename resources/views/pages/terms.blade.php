@@ -16,7 +16,7 @@
         <h2 class="text-xl font-semibold text-navy-dark">The website</h2>
         <p>Content describes payment collection products in a public, frontend-only phase. Sample APIs, QR simulators, pricing placeholders and contact forms are demonstrations. They are not an offer of live payment processing.</p>
         <h2 class="text-xl font-semibold text-navy-dark">No unauthorised access</h2>
-        <p>You may not attempt to disrupt, scrape aggressively, or probe the site for non-public systems. Login and dashboard features are intentionally not provided here.</p>
+        <p>You may not attempt to disrupt, scrape aggressively, or probe the site for non-public systems. Merchant and admin access is through the separate BadiliCash dashboard, and only with credentials issued for that account.</p>
         <h2 class="text-xl font-semibold text-navy-dark">Intellectual property</h2>
         <p>The BadiliCash name, logo and site design are used under the brand owner’s rights. Do not copy the logo or imply a partnership without written permission.</p>
         <h2 class="text-xl font-semibold text-navy-dark">Accuracy</h2>

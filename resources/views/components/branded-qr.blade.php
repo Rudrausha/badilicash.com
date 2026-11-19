@@ -24,7 +24,7 @@
         <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
             <div class="rounded-lg bg-white p-1 shadow-sm ring-1 ring-slate-100">
                 <img
-                    src="{{ asset('assets/images/favicon.png') }}"
+                    src="{{ asset('assets/images/mark.png') }}"
                     alt="BadiliCash"
                     class="object-contain"
                     style="width: {{ $logo }}px; height: {{ $logo }}px;"
@@ -41,7 +41,7 @@
 
     @if ($showName)
         <div class="mt-3 flex items-center gap-2">
-            <img src="{{ asset('assets/images/favicon.png') }}" alt="" class="h-5 w-5 object-contain" width="20" height="20">
+            <img src="{{ asset('assets/images/mark.png') }}" alt="" class="h-5 w-5 object-contain" width="20" height="20">
             <span class="text-sm font-bold tracking-wide text-navy">BadiliCash</span>
         </div>
     @endif

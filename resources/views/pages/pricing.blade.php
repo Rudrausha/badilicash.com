@@ -12,7 +12,7 @@
 @endphp
 
 @section('content')
-    <x-page-hero eyebrow="Pricing" title="Simple packaging. Commercial terms on request." cta="Contact sales" :ctaHref="route('contact')">
+    <x-page-hero eyebrow="Pricing" title="Simple packaging. Commercial terms on request." cta="Contact sales" :ctaHref="route('contact')" roomy>
         Figures below are <strong>indicative placeholders</strong>, not published acquiring rates. Use them to compare product surfaces, then talk to us for a real quote.
     </x-page-hero>
 

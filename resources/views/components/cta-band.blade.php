@@ -10,7 +10,7 @@
         <div class="absolute -bottom-24 left-16 h-56 w-56 rounded-full bg-green/40 blur-2xl"></div>
         <div class="relative mx-auto max-w-3xl text-center">
             <p class="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-[0.16em] uppercase">BadiliCash</p>
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ $title }}</h2>
+            <h2 class="text-[1.45rem] font-bold tracking-tight sm:text-[1.7rem]">{{ $title }}</h2>
             <p class="mt-4 text-base text-white/80">{{ $text }}</p>
             <div class="mt-8 flex flex-wrap justify-center gap-3">
                 <a href="{{ route('contact', ['intent' => 'start']) }}" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-navy shadow-lg hover:bg-canvas">Get Started</a>

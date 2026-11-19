@@ -53,8 +53,12 @@ document.addEventListener('alpine:init', () => {
                 ? 'Login / account enquiry'
                 : new URLSearchParams(window.location.search).get('intent') === 'start'
                     ? 'Get started with BadiliCash'
-                    : '',
-            message: '',
+                    : new URLSearchParams(window.location.search).get('intent') === 'order'
+                        ? 'Order a QR Sound Box'
+                        : '',
+            message: new URLSearchParams(window.location.search).get('intent') === 'order' && new URLSearchParams(window.location.search).get('product')
+                ? `I would like to order the ${new URLSearchParams(window.location.search).get('product')}.`
+                : '',
         },
         validate() {
             this.errors = {};

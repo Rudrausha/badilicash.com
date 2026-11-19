@@ -17,18 +17,21 @@
 
 @section('content')
     {{-- Hero --}}
-    <section class="mesh relative overflow-hidden">
-        <div class="container-bc grid items-center gap-10 py-14 lg:grid-cols-2 lg:gap-6 lg:py-20">
-            <div data-aos="fade-up">
+    <section class="mesh hero-blend">
+        <div class="hero-blend-art">
+            <img src="{{ asset('assets/images/hero-person.png') }}?v=2" alt="Woman holding a card and a laptop">
+        </div>
+        <div class="container-bc relative z-10 grid items-center gap-8 py-8 lg:grid-cols-2 lg:gap-12 lg:py-10">
+            <div class="min-w-0" style="min-width: 0;" data-aos="fade-up">
                 <p class="eyebrow">
                     <span class="h-1.5 w-1.5 rounded-full bg-green"></span>
                     Digital payment collections
                 </p>
-                <h1 class="display mt-6">
+                <h1 class="display mt-4">
                     Smarter Payments.<br>
                     <span class="gradient-text">Seamless Possibilities.</span>
                 </h1>
-                <p class="lead mt-6">
+                <p class="lead mt-4">
                     Power your business with innovative digital payment solutions. Simplify collections, streamline payment experiences and move your business forward with BadiliCash.
                 </p>
                 <div class="mt-8 flex flex-wrap gap-3">
@@ -38,22 +41,20 @@
                 <div class="mt-10 grid max-w-lg grid-cols-3 gap-3">
                     <div class="rounded-2xl border border-white/80 bg-white/70 px-3 py-3 shadow-sm backdrop-blur">
                         <p class="text-[10px] font-semibold tracking-wide text-muted uppercase">QR modes</p>
-                        <p class="mt-1 text-xl font-bold text-navy-dark">Static + Dynamic</p>
+                        <p class="mt-1 text-sm font-bold text-navy-dark">Static + Dynamic</p>
                     </div>
                     <div class="rounded-2xl border border-white/80 bg-white/70 px-3 py-3 shadow-sm backdrop-blur">
                         <p class="text-[10px] font-semibold tracking-wide text-muted uppercase">Collect via</p>
-                        <p class="mt-1 text-xl font-bold text-navy-dark">UPI + Links</p>
+                        <p class="mt-1 text-sm font-bold text-navy-dark">UPI + Links</p>
                     </div>
                     <div class="rounded-2xl border border-white/80 bg-white/70 px-3 py-3 shadow-sm backdrop-blur">
                         <p class="text-[10px] font-semibold tracking-wide text-muted uppercase">For teams</p>
-                        <p class="mt-1 text-xl font-bold text-navy-dark">API-ready</p>
+                        <p class="mt-1 text-sm font-bold text-navy-dark">API-ready</p>
                     </div>
                 </div>
                 <p class="mt-3 text-[11px] text-slate-400">Highlights are illustrative product surfaces, not live processing metrics.</p>
             </div>
-            <div data-aos="fade-left">
-                <x-hero-stage />
-            </div>
+            <div class="hero-blend-spacer" aria-hidden="true"></div>
         </div>
         <div class="border-t border-navy/5 bg-white/50 backdrop-blur">
             <div class="container-bc flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-4 text-[11px] font-semibold tracking-[0.2em] text-navy/70 uppercase">
@@ -71,6 +72,8 @@
             </div>
         </div>
     </section>
+
+    <x-global-network />
 
     {{-- Solutions --}}
     <section class="container-bc py-20">
@@ -110,9 +113,13 @@
                     <h2 class="section-kicker">One Scan. A Seamless Payment Experience.</h2>
                     <p class="mt-4 text-muted">Choose a reusable Static QR for open collections, or generate a Dynamic QR when every request needs a locked amount and a clear reference.</p>
                 </div>
-                <div class="grid items-end gap-4 sm:grid-cols-2" data-aos="zoom-in">
-                    <x-scanner variant="static" note="Scan · enter amount" />
-                    <x-scanner variant="dynamic" amount="₹1,250.00" note="Unique request QR" />
+                <div class="scan-stage" data-aos="zoom-in">
+                    <div class="scan-static">
+                        <x-scanner variant="static" note="Scan · enter amount" />
+                    </div>
+                    <div class="scan-dynamic">
+                        <x-scanner variant="dynamic" amount="₹1,250.00" note="Unique request QR" />
+                    </div>
                 </div>
             </div>
             <div class="mt-12 grid gap-6 lg:grid-cols-2">
@@ -143,6 +150,29 @@
                     <a href="{{ route('dynamic-qr') }}" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-navy">Explore Dynamic QR <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
                 </article>
             </div>
+        </div>
+    </section>
+
+    {{-- QR sound boxes --}}
+    <section class="container-bc py-20">
+        <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+            <p class="eyebrow mx-auto">QR Sound Boxes</p>
+            <h2 class="section-kicker">Sound boxes with the QR on the device</h2>
+            <p class="mt-4 text-muted">Standard, Digital, and Dynamic QR Sound Boxes. Each one keeps a scannable QR in view and reads the payment back out loud.</p>
+        </div>
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+            @foreach (\App\Support\SoundBoxCatalog::all() as $box)
+                <article class="card flex flex-col p-6" data-aos="fade-up">
+                    <img src="{{ asset($box['image']) }}" alt="{{ $box['imageAlt'] }}" class="mx-auto h-64 w-full object-contain">
+                    <h3 class="mt-4 text-xl font-semibold text-navy-dark">{{ $box['name'] }}</h3>
+                    <ul class="mt-4 space-y-2 text-sm text-muted">
+                        @foreach (array_slice($box['features'], 0, 4) as $feature)
+                            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-green"></i> {{ $feature[0] }}</li>
+                        @endforeach
+                    </ul>
+                    <a href="{{ route($box['route']) }}" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-navy">See all features <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+                </article>
+            @endforeach
         </div>
     </section>
 
@@ -276,4 +306,106 @@ $response = curl_exec($ch);</code></pre>
     </section>
 
     <x-cta-band />
+
+    <style>
+        #main .hero-blend h1.display {
+            font-size: clamp(1.55rem, 2.1vw, 1.95rem);
+            line-height: 1.2;
+        }
+        #main .hero-blend .lead {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 34rem;
+        }
+        .hero-blend { position: relative; overflow: hidden; }
+        .hero-blend-art {
+            position: absolute;
+            top: 4rem;
+            right: 0;
+            bottom: 52px;
+            width: min(560px, 52%);
+            overflow: hidden;
+            pointer-events: none;
+            animation: hero-slide 1.25s cubic-bezier(0.22, 0.8, 0.24, 1) both;
+        }
+        .hero-blend-art::before {
+            content: '';
+            position: absolute;
+            right: 8%;
+            bottom: 6%;
+            width: 72%;
+            height: 58%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 176, 168, 0.5), rgba(255, 176, 168, 0) 70%);
+            filter: blur(8px);
+            animation: hero-glow 6s ease-in-out infinite;
+        }
+        .hero-blend-art img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: 92%;
+            max-width: 100%;
+            object-fit: contain;
+            object-position: right bottom;
+            animation: hero-float 7s ease-in-out infinite;
+        }
+        .hero-blend-spacer { min-height: 420px; }
+        @keyframes hero-slide {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes hero-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes hero-glow {
+            0%, 100% { opacity: 0.65; }
+            50% { opacity: 1; }
+        }
+        @media (max-width: 1023px) {
+            .hero-blend-art {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                width: 100%;
+                height: 380px;
+                margin-top: 8px;
+            }
+            .hero-blend-art img {
+                position: relative;
+                height: 100%;
+                margin-left: auto;
+                object-position: center bottom;
+            }
+            .hero-blend-spacer { display: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-blend-art,
+            .hero-blend-art img,
+            .hero-blend-art::before { animation: none; }
+        }
+        .scan-stage {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 22px;
+            min-height: 100%;
+            padding: 28px 22px 26px;
+            border-radius: 32px;
+            background:
+                radial-gradient(380px 160px at 72% 100%, rgba(35, 154, 69, 0.14), transparent 70%),
+                linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%);
+            box-shadow: 0 24px 50px -32px rgba(23, 37, 84, 0.45);
+            border: 1px solid #e6edf5;
+        }
+        .scan-static { width: min(250px, 46%); }
+        .scan-static > div { max-width: none; }
+        .scan-dynamic { width: min(228px, 42%); }
+        .scan-dynamic .phone-shell { width: 100%; }
+        @media (max-width: 640px) {
+            .scan-stage { gap: 12px; padding: 18px 12px 16px; }
+        }
+    </style>
 @endsection

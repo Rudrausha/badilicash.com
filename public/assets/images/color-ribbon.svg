@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" fill="none">
+  <defs>
+    <linearGradient id="ribbon" x1="780" y1="0" x2="420" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7aa2ff"/>
+      <stop offset="0.18" stop-color="#3d5fd4"/>
+      <stop offset="0.38" stop-color="#263d87"/>
+      <stop offset="0.58" stop-color="#12948a"/>
+      <stop offset="0.76" stop-color="#239a45"/>
+      <stop offset="0.92" stop-color="#8ae7b0"/>
+      <stop offset="1" stop-color="#e9f9f0"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="900" y1="40" x2="480" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grain" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(58)">
+      <path d="M0 0H8" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.2"/>
+    </pattern>
+    <linearGradient id="fade" x1="80" y1="0" x2="340" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="fadeMask">
+      <rect width="1000" height="900" fill="url(#fade)"/>
+    </mask>
+  </defs>
+  <g mask="url(#fadeMask)">
+    <path fill="url(#ribbon)" d="M1080-90C620-70 210 40 250 250c48 250-90 300 40 500 110 170 360 280 790 250V-90Z"/>
+    <path fill="url(#grain)" d="M1080-90C620-70 210 40 250 250c48 250-90 300 40 500 110 170 360 280 790 250V-90Z"/>
+    <path fill="url(#sheen)" d="M1080-90C620-70 210 40 250 250c48 250-90 300 40 500 110 170 360 280 790 250V-90Z"/>
+  </g>
+</svg>

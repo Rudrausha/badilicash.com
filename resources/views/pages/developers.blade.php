@@ -61,7 +61,7 @@ JSON;
 @endphp
 
 @section('content')
-    <x-page-hero eyebrow="Developers" title="APIs that follow the same request model as the product." cta="Contact developer support" :ctaHref="route('contact')">
+    <x-page-hero eyebrow="Developers" title="APIs that follow the same request model as the product." cta="Contact developer support" :ctaHref="route('contact')" roomy>
         Authentication, pay-ins, Dynamic QR and webhooks are documented here as examples. Treat every URL as a sample until production APIs are published.
     </x-page-hero>
 
